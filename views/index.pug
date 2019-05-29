@@ -1,0 +1,19 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title ShortenURL
+        link(href='https://fonts.googleapis.com/css?family=Open+Sans:300', rel='stylesheet', type='text/css')
+    body
+        .container
+            fieldset
+                form(action='/api/v1/shorten/put', method='post')
+                    input.ghost-input(name='longUrl', type='text', placeholder='Enter a Long URL', required='')
+                    input.ghost-button(type='submit', value='Get')
+
+        if message
+            h1= message
+        if shortFullUrl
+            p
+                a(href= shortFullUrl)
+                    p= shortFullUrl
